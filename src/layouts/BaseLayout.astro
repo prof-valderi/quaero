@@ -1,0 +1,46 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+
+const {
+  title = "Quaero — Revista filosófica",
+  description = "Revista de filosofia em diálogo com a Escola Immortalis.",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+
+  <body>
+    <SiteHeader currentPath={currentPath} />
+
+    <main class="page">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div class="small">
+          <strong class="serif">Quaero</strong> — revista filosófica independente.
+          <span class="muted"> Em diálogo com a Escola Immortalis.</span>
+        </div>
+
+        <div class="small muted">
+          © {new Date().getFullYear()} • valderi.com.br
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

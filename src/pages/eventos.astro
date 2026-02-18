@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const events = [
+  {
+    title: "Roda de leitura — Introdução a Platão",
+    when: "Quintas, 20h (BRT)",
+    where: "Online • Escola Immortalis",
+    desc: "Leitura guiada + perguntas. Gratuito (vagas limitadas).",
+  },
+  {
+    title: "Seminário — Filosofia como disciplina do texto",
+    when: "Sábado, 10h (BRT)",
+    where: "Online",
+    desc: "Como ler, fichar, escrever e revisar argumentos.",
+  },
+];
+---
+
+<BaseLayout title="Eventos — Quaero" description="Agenda de eventos e encontros de estudo.">
+  <div class="section-title">
+    <h1 class="serif">Eventos</h1>
+    <span class="badge">Agenda</span>
+  </div>
+
+  <p class="lead">
+    Encontros, rodas de leitura e aulas abertas — em diálogo com a Escola Immortalis.
+  </p>
+
+  <div class="grid cols-2" style="margin-top:16px;">
+    {events.map((e) => (
+      <div class="card" style="padding:16px;">
+        <h2 class="serif" style="font-size:1.35rem;">{e.title}</h2>
+        <div class="small muted">{e.when} • {e.where}</div>
+        <div style="height:10px"></div>
+        <p class="small muted">{e.desc}</p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="/contato">Quero participar</a>
+          <a class="btn secondary" href="/sobre">Sobre a Immortalis</a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <hr class="hr" />
+
+  <div class="card" style="padding:16px;">
+    <h2 class="serif">Quer divulgar um evento?</h2>
+    <p class="small muted">
+      Se fizer sentido editorialmente (filosofia, leitura, pesquisa, tradução), podemos divulgar aqui.
+    </p>
+    <a class="btn" href="/contato">Enviar proposta</a>
+  </div>
+</BaseLayout>

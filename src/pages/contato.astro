@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contato — Quaero" description="Contato e submissões para a revista Quaero.">
+  <div class="section-title">
+    <h1 class="serif">Contato</h1>
+    <span class="badge">Fale conosco</span>
+  </div>
+
+  <div class="grid cols-2" style="align-items:start;">
+    <div class="card" style="padding:18px;">
+      <h2 class="serif">Envie uma mensagem</h2>
+      <p class="small muted">
+        Use este formulário para: dúvidas, propostas, divulgação de eventos e submissões.
+      </p>
+
+      <!--
+        Para funcionar de verdade em site estático:
+        - Formspree: action="https://formspree.io/f/SEU_ID"
+        - Ou Google Forms embed
+        - Ou Netlify Forms (se hospedar na Netlify)
+      -->
+      <form method="post" action="#" class="form" style="margin-top:14px;">
+        <label class="small">Nome</label>
+        <input name="nome" required />
+
+        <label class="small">Email</label>
+        <input type="email" name="email" required />
+
+        <label class="small">Assunto</label>
+        <select name="assunto">
+          <option>Contato geral</option>
+          <option>Submissão — Ensaio</option>
+          <option>Submissão — Resenha</option>
+          <option>Submissão — Tradução</option>
+          <option>Evento</option>
+          <option>Suporte</option>
+        </select>
+
+        <label class="small">Mensagem</label>
+        <textarea name="mensagem" rows="6" required></textarea>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <button class="btn" type="submit">Enviar</button>
+          <a class="btn secondary" href="/downloads">Ver diretrizes</a>
+        </div>
+
+        <p class="small muted" style="margin-top:12px;">
+          * Ajuste o <code>action</code> para um serviço de formulário quando for publicar.
+        </p>
+      </form>
+    </div>
+
+    <aside class="card" style="padding:18px;">
+      <h2 class="serif">Diretrizes rápidas</h2>
+      <ul class="small muted" style="line-height:1.8; margin:10px 0 0 18px;">
+        <li>Texto com clareza e referências completas.</li>
+        <li>Traduções: informe edição-base e critérios.</li>
+        <li>Resenhas: contextualize autor/obra e tese central.</li>
+        <li>Envie um mini-resumo (3–5 linhas).</li>
+      </ul>
+
+      <hr class="hr" />
+
+      <h2 class="serif">Vínculo</h2>
+      <p class="small muted">
+        A Quaero dialoga com a Escola Immortalis, sem representar instituição oficial.
+      </p>
+      <a class="btn secondary" href="/sobre">Ler o manifesto</a>
+    </aside>
+  </div>
+
+  <style>
+    .form input, .form select, .form textarea{
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      padding: 10px 12px;
+      margin: 6px 0 12px;
+      font: inherit;
+    }
+    .form textarea{ resize: vertical; }
+    .form input:focus, .form select:focus, .form textarea:focus{
+      outline: 2px solid rgba(192,58,16,.25);
+      border-color: rgba(192,58,16,.45);
+    }
+  </style>
+</BaseLayout>

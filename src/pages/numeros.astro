@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const issues = [
+  {
+    title: "Número 0 (em construção)",
+    date: "2025",
+    summary: "Editorial, sumário e primeiros textos em PDF.",
+    status: "Em breve",
+  },
+  {
+    title: "Dossiê: Platão e o platonismo vivo",
+    date: "2025/1",
+    summary: "Leituras guiadas, notas e traduções introdutórias.",
+    status: "Destaque",
+  },
+];
+---
+
+<BaseLayout title="Números — Quaero" description="Edições e dossiês da revista Quaero.">
+  <div class="section-title">
+    <h1 class="serif">Números</h1>
+    <span class="badge">Edições & dossiês</span>
+  </div>
+
+  <p class="lead">
+    Aqui ficam as edições (números) e dossiês temáticos. No começo, você pode publicar como “dossiês”
+    e depois fechar em “número” quando tiver sumário e diagramação.
+  </p>
+
+  <div class="grid cols-2" style="margin-top: 16px;">
+    {issues.map((i) => (
+      <div class="card" style="padding:16px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div class="badge">{i.status}</div>
+          <div class="small muted">{i.date}</div>
+        </div>
+
+        <div style="height:10px"></div>
+        <h2 class="serif" style="font-size:1.35rem;">{i.title}</h2>
+        <p class="small muted">{i.summary}</p>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <a class="btn" href="/blog">Ver textos</a>
+          <a class="btn secondary" href="/downloads">Downloads</a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <hr class="hr" />
+
+  <div class="card" style="padding:16px;">
+    <h2 class="serif">Chamada permanente</h2>
+    <p class="small muted">
+      Se quiser receber textos para revisão/curadoria, você pode usar o formulário de Contato e pedir:
+      “submissão — ensaio/resenha/tradução”.
+    </p>
+    <a class="btn" href="/contato">Enviar submissão</a>
+  </div>
+</BaseLayout>

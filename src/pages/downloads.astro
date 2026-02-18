@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const items = [
+  { title: "Diretrizes para submissão (PDF)", note: "Em breve", href: "#" },
+  { title: "Modelo de ensaio (DOCX/ODT)", note: "Em breve", href: "#" },
+  { title: "Modelo de resenha (DOCX/ODT)", note: "Em breve", href: "#" },
+  { title: "Padrão de citações e referências", note: "Em breve", href: "#" },
+];
+---
+
+<BaseLayout title="Downloads — Quaero" description="Arquivos e modelos para autores e leitores.">
+  <div class="section-title">
+    <h1 class="serif">Downloads</h1>
+    <span class="badge">Modelos & PDFs</span>
+  </div>
+
+  <p class="lead">
+    Materiais para autores e leitores: modelos, diretrizes e PDFs das edições.
+  </p>
+
+  <div class="grid cols-2" style="margin-top:16px;">
+    {items.map((i) => (
+      <a class="card" href={i.href} style="padding:16px; text-decoration:none;">
+        <h2 class="serif" style="font-size:1.25rem;">{i.title}</h2>
+        <div class="small muted">{i.note}</div>
+        <div style="height:10px"></div>
+        <div class="small" style="font-weight:700;">Baixar →</div>
+      </a>
+    ))}
+  </div>
+
+  <hr class="hr" />
+
+  <div class="card" style="padding:16px;">
+    <h2 class="serif">Submissões</h2>
+    <p class="small muted">
+      Envie sua proposta pelo formulário e indique o tipo de texto.
+    </p>
+    <a class="btn" href="/contato">Enviar submissão</a>
+  </div>
+</BaseLayout>
